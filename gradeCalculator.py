@@ -5,8 +5,9 @@ print("These are all the courses you are taking this year.\n")
 courses = []
 grades = []
 
-file1 = open("executeInput.txt","w") #opening file in append mode;
+file1 = open("courseListWGrades.txt","w") #opening file in append mode;
 file2 = open("courseList.txt","r") #This is the file from which will provide inputs
+file3 = open
 
 
 # Set new_name to something other than 'quit'.
@@ -47,6 +48,10 @@ while grade != quit:
         grades.append(gradeValue)
         print("\nYou got an " + gradeValue + " for " + courses[grade] + ". Congrats!")
         print("If you got more courses then feel free to add else type quit")
+        file1.write(courses[grade] + gradeValue + '\n')
+
+file2.close
+print("These are your current grades:")
 
 
 #    print(course)
