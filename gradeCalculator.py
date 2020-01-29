@@ -34,7 +34,7 @@ print("\nNow lets add your grades!")
 while grade != quit:
     grade = (input("\nEnter the number of the course you want to add to (0 - 7): "))
     if(grade == 'quit'):
-        print("You are exiting now! Bye bro.")
+        print("\nYou are exiting now! Bye bro.")
         break
     else:
         grade = int(grade)
