@@ -5,9 +5,8 @@ print("These are all the courses you are taking this year.\n")
 courses = []
 grades = []
 
-file1 = open("courseListWGrades.txt","a") #opening file in append mode;
-file2 = open("courseList.txt","r") #This is the file from which will provide inputs
 
+file2 = open("courseList.txt","r") #This is the file from which will provide inputs
 
 # Set new_name to something other than 'quit'.
 holder = '' #this is for the final holding
@@ -28,8 +27,19 @@ while line:
      line = file2.readline()
 
 
-
 print("\nNow lets add your grades!")
+
+file4 = open("courseListWGrades.txt", "r")
+print("These are the grades you have so far: \n")
+readLine = file4.readline()
+while readLine:
+    readLine = readLine.rstrip('\n')
+    print(readLine)
+    readLine = file4.readline()
+file4.close
+
+
+file1 = open("courseListWGrades.txt","a") #opening file in append mode;
 
 while grade != quit:
     grade = (input("\nEnter the number of the course you want to add to (0 - 7): "))
@@ -47,18 +57,33 @@ while grade != quit:
         grades.append(gradeValue)
         print("\nYou got an " + gradeValue + " for " + courses[grade] + ". Congrats!")
         print("If you got more courses then feel free to add else type quit")
-        file1.write(courses[grade] + gradeValue + '\n')
+        file1.write(courses[grade] + ": c" + gradeValue  + '\n')
 
 file1.close
-file3 = open("courseListWGrades.txt","r+")
+# file3 = open("courseListWGrades.txt","r+")
+file4 = open("courseListWGrades.txt", "r")
+newLine = file4.readline()
 
+while newLine:
+    # Remove the new line characters and extra spacing
+    newLine = newLine.strip()
+    # For each part in the new line look for grade
+    for part in newLine.split():
+        if '(:' in part:
+            # Take the whole line and then replace the 'Grade:' with a blank character so we are only left with the letter
+            newLine = newLine[2] #if wanted the grades 
+           # print it out
+            print(newLine)
+            # put it into the grades text file. 
+    # Move to the next line regardless 
+    newLine = file4.readline()
 
-line2 = file3.readline()
-print(line2)
-while line2:
-    courseLine = line2.rstrip('\n')
-    print(courseLine)
-    line2 = file3.readline()
+# line2 = file3.readline()
+# print(line2)
+# while line2:
+#     courseLine = line2.rstrip('\n')
+#     print(courseLine)
+#     line2 = file3.readline()
 
 
 #    print(course)
