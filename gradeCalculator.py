@@ -57,7 +57,7 @@ while grade != quit:
         grades.append(gradeValue)
         print("\nYou got an " + gradeValue + " for " + courses[grade] + ". Congrats!")
         print("If you got more courses then feel free to add else type quit")
-        file1.write(courses[grade] + ": c" + gradeValue  + '\n')
+        file1.write(courses[grade] + ": " + gradeValue  + '\n')
 
 file1.close
 # file3 = open("courseListWGrades.txt","r+")
